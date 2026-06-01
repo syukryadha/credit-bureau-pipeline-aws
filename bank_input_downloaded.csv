@@ -1,0 +1,7 @@
+customer_id,name,ic_number,loan_amount
+C001,Ahmad Razif,800101-14-5678,50000
+C002,Siti Norzahra,,30000
+C003,Lee Wei Liang,881215-05-9999,20000
+C004,,920303-08-1234,15000
+C005,Raj Kumar,750612-10-4321,-5000
+C006,Nurul Ain,990808-02-7654,0

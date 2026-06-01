@@ -1,0 +1,3 @@
+token|credit_score|risk_tier
+TKN-001|720|LOW
+TKN-003|440|HIGH

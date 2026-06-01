@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+*.log
+config/__pycache__/
+config/config_gcp.py
+extract/__pycache__/
+load/__pycache__/

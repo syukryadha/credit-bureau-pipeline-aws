@@ -1,0 +1,7 @@
+INBOUND_BUCKET = "credit-pipeline-inbound-aws-syukry"
+ATHENA_S3_PATH = "s3://credit-pipeline-athena-aws-syukry/processed_customers/"
+ATHENA_DB = "credit_bureau_db"
+ATHENA_TABLE = "processed_customers"
+REGION = "ap-southeast-1"
+LOG_FILE = r"03-project-aws\pipeline.log"
+BANK_BUCKET ="credit-pipeline-output-aws-syukry"

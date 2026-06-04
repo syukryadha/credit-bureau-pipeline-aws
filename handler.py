@@ -1,5 +1,5 @@
 from main import run_pipeline
-from config.config import INBOUND_BUCKET
+
 
 fake_event = {
     "Records": [

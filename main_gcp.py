@@ -27,7 +27,8 @@ def run_pipeline(bucket_name, key, file_bureau_response):
         temp_filepath = download_gcs_to_temp(bucket_name, key)
         valid_rows = validate_with_pandas(temp_filepath)
         anonymized_rows, token_map, loan_map = anonymize(valid_rows)
-        processed_rows, count_output_valid_rows = deidentify(file_bureau_response, token_map, loan_map)
+        processed_rows, count_output_valid_rows = deidentify(
+            file_bureau_response, token_map, loan_map)
         with open("final_output.txt", "w") as f:
             f.write("customer_id|credit_score|risk_tier|loan_amount|processed_date\n")
             for row in processed_rows:

@@ -1,6 +1,8 @@
 import awswrangler as wr
 import pandas as pd
 import logging
+
+
 def load_to_athena(processed_rows, s3_path, database, table):
     df = pd.DataFrame(processed_rows)
 

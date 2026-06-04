@@ -1,5 +1,4 @@
 from transform.validate import validate_with_pandas
-import pytest
 import tempfile
 import os
 import sys

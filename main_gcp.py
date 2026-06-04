@@ -1,6 +1,6 @@
 import logging
 import os
-from datetime import date
+
 
 # import what you need
 from config.config_gcp import LOG_FILE, dataset_id, table_id, BANK_BUCKET

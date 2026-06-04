@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - pip install -r requirements.txt --target ./package
+
+  build:
+    commands:
+      - cp -r . ./package
+      - cd package && zip -r ../deployment.zip .
+
+  post_build:
+    commands:
+      - aws s3 cp deployment.zip s3://credit-pipeline-deploy-aws-syukry/deployment.zip
+      - aws lambda update-function-code --function-name credit-bureau-pipeline --s3-bucket credit-pipeline-deploy-aws-syukry --s3-key deployment.zip --region ap-southeast-1
+
+artifacts:
+  files:
+    - deployment.zip

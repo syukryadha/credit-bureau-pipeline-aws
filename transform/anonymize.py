@@ -1,5 +1,6 @@
 import logging
 
+
 def anonymize(valid_rows):
     token_map = {"TKN-" + row["customer_id"][1:]: row["customer_id"] for row in valid_rows}
     reversed_map = {v: k for k, v in token_map.items()}
@@ -8,9 +9,8 @@ def anonymize(valid_rows):
     anonymized_rows = []
     for row in valid_rows:
         token = reversed_map[row["customer_id"]]
-        anonymized_rows.append({"token": token, "loan_amount": row["loan_amount"]})
-
-
+        anonymized_rows.append(
+            {"token": token, "loan_amount": row["loan_amount"]})
 
     with open("bureau_request.txt", "w") as output:
         print("token|loan_amount", file=output)

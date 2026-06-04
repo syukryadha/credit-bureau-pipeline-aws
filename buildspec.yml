@@ -8,7 +8,7 @@ phases:
   build:
     commands:
       - mkdir -p package
-      - cp -r . ./package
+      - cp -r $(ls | grep -v package) ./package/
       - cd package && zip -r ../deployment.zip .
 
   post_build:

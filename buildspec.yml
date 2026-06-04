@@ -8,7 +8,9 @@ phases:
   build:
     commands:
       - mkdir -p package
-      - cp -r $(ls | grep -v package) ./package/
+      - pip install -r requirements.txt --target ./package
+      - cp handler.py main.py ./package/
+      - cp -r config extract transform load ./package/
       - (cd package && zip -r ../deployment.zip .)
 
   post_build:

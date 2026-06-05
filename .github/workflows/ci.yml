@@ -34,6 +34,7 @@ jobs:
       
       - name: Type check
         run: mypy validate.py anonymize.py deidentify.py
+        working-directory: transform
 
       - name: Run tests
         run: pytest -v

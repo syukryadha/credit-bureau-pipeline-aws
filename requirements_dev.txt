@@ -4,3 +4,4 @@ pandas
 pytest
 flake8
 mypy
+pandas-stubs

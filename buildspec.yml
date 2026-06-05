@@ -1,23 +1,16 @@
 version: 0.2
 
 phases:
-  install:
+  pre_build:
     commands:
-      - pip install -r requirements.txt --target ./package
+      - aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 074416822474.dkr.ecr.ap-southeast-1.amazonaws.com
 
   build:
     commands:
-      - mkdir -p package
-      - pip install -r requirements.txt --target ./package
-      - cp handler.py main.py ./package/
-      - cp -r config extract transform load ./package/
-      - (cd package && zip -r ../deployment.zip .)
+      - docker build -t credit-bureau-pipeline .
+      - docker tag credit-bureau-pipeline:latest 074416822474.dkr.ecr.ap-southeast-1.amazonaws.com/credit-bureau-pipeline:latest
 
   post_build:
     commands:
-      - aws s3 cp deployment.zip s3://credit-pipeline-deploy-aws-syukry/deployment.zip
-      - aws lambda update-function-code --function-name credit-bureau-pipeline --s3-bucket credit-pipeline-deploy-aws-syukry --s3-key deployment.zip --region ap-southeast-1
-
-artifacts:
-  files:
-    - deployment.zip
+      - docker push 074416822474.dkr.ecr.ap-southeast-1.amazonaws.com/credit-bureau-pipeline:latest
+      - aws lambda update-function-code --function-name credit-bureau-pipeline --image-uri 074416822474.dkr.ecr.ap-southeast-1.amazonaws.com/credit-bureau-pipeline:latest --region ap-southeast-1

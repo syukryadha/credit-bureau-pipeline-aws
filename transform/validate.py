@@ -2,7 +2,7 @@ import logging
 import pandas as pd
 
 
-def validate_with_pandas(filepath):
+def validate_with_pandas(filepath: str) -> list[dict]:
 
     df = pd.read_csv(filepath)
 

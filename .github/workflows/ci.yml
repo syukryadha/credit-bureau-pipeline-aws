@@ -31,6 +31,9 @@ jobs:
 
       - name: Run flake8
         run: flake8 .
+      
+      - name: Type check
+        run: mypy validate.py anonymize.py deidentify.py
 
       - name: Run tests
         run: pytest -v

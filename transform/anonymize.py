@@ -1,8 +1,8 @@
 import logging
 
 
-def anonymize(valid_rows):
-    token_map = {"TKN-" + row["customer_id"][1:]: row["customer_id"] for row in valid_rows}
+def anonymize(valid_rows: list[dict]) -> tuple[list[dict], dict[str, str], dict[str, float]]:
+    token_map = {"TKN-" + row["customer_id"][1:] : row["customer_id"] for row in valid_rows}
     reversed_map = {v: k for k, v in token_map.items()}
     loan_map = {row["customer_id"]: row["loan_amount"] for row in valid_rows}
 

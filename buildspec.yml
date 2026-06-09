@@ -13,4 +13,4 @@ phases:
   post_build:
     commands:
       - docker push 074416822474.dkr.ecr.ap-southeast-1.amazonaws.com/credit-bureau-pipeline:latest
-      - aws lambda update-function-code --function-name credit-bureau-pipeline --image-uri 074416822474.dkr.ecr.ap-southeast-1.amazonaws.com/credit-bureau-pipeline:latest --region ap-southeast-1
+      - aws lambda update-function-code --function-name credit-bureau-pipeline --image-uri 074416822474.dkr.ecr.ap-southeast-1.amazonaws.com/credit-bureau-pipeline:latest --region ap-southeast-1 

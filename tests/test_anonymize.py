@@ -25,3 +25,12 @@ def test_anonymize():
     for row in list_dict:
         expected_token = f"TKN-{row['customer_id'][1:]}"
         assert token_map[expected_token] == row["customer_id"]
+
+def test_valid_rows_is_empty_list():
+    list_dict = []
+
+    anonymized_rows, token_map, loan_map = anonymize(list_dict)
+
+    assert anonymized_rows == []
+    assert token_map == {}
+    assert loan_map == {}

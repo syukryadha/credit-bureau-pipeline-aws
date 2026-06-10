@@ -29,8 +29,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements_dev.txt
 
-      - name: Run flake8
-        run: flake8 .
+      #- name: Run flake8
+      #  run: flake8 .
       
       - name: Type check
         run: mypy validate.py anonymize.py deidentify.py

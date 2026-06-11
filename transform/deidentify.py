@@ -33,7 +33,7 @@ def deidentify(file_bureau_response: str, token_map: dict[str, str], loan_map: d
             raw_risk_tier = row.get("risk_tier")
             if raw_risk_tier is None:
                 raise ValueError(f"Missing risk_tier for token {token}")
-            raw_loan_amount = row.get("loan_amount")
+            raw_loan_amount = loan_map.get(raw_customer_id)
             if raw_loan_amount is None:
                 raise ValueError(f"Missing loan_amount for token {token}")
             

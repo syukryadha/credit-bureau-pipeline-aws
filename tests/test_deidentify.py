@@ -25,6 +25,6 @@ TKN-003|440|HIGH"""
     assert isinstance(count_output_valid_rows, int)
 
     assert {'customer_id', 'credit_score', 'risk_tier', 'loan_amount',
-            'processed_date'} == set(processed_rows[0].keys())
+            'processed_date'} == set(processed_rows[0].__dict__.keys())
 
     os.remove(tmp_path)

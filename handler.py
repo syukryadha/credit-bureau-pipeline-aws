@@ -1,7 +1,9 @@
+from typing import Any
+
 from main import run_pipeline
 
 
-def lambda_handler(event, context=None):
+def lambda_handler(event: dict[str, Any], context: Any) -> None:
     bucket_name = event["Records"][0]["s3"]["bucket"]["name"]
     object_key = event["Records"][0]["s3"]["object"]["key"]
     file_bureau_response = "bureau_response.txt"

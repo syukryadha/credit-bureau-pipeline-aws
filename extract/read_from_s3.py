@@ -4,7 +4,7 @@ import logging
 from config.config import REGION
 
 
-def download_s3_to_temp(bucket, key):
+def download_s3_to_temp(bucket: str, key: str) -> str:
     s3 = boto3.client("s3", region_name=REGION)
     temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".csv")
     temp_file.close()

@@ -2,7 +2,7 @@ import logging
 import os
 import pandas as pd
 import config.config_gcp as config
-from anonymize_gcp import anonymize
+from transform.anonymize_gcp import anonymize
 
 
 # import what you need
@@ -42,3 +42,10 @@ def run_pipeline(bucket_name_inbound, key, key_bureau_response):
         logging.error(f"Validation error: {e}")
     except Exception as e:
         logging.error(f"Pipeline error: {e}")
+
+if __name__ == "__main__":
+    run_pipeline(
+            bucket_name_inbound=config.bucket_name,
+            key=config.key,
+            key_bureau_response=config.key_bureau_response,
+        )

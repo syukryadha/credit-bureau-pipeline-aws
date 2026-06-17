@@ -1,10 +1,10 @@
 import logging
 import pandas as pd
 import config.config_gcp as config
-from extract.read_from_gcs import download_gcs_to_temp
 
-temp_filepath_bank_file = download_gcs_to_temp(config.bucket_name, key)
-df_bank_file = pd.read_csv(temp_filepath_bank_file)
+temp_filepath_bank_file = download_gcs_to_temp(
+            bucket_name_inbound, key)
+        df_bank_file = pd.read_csv(temp_filepath_bank_file)
 
 def anonymize(valid_rows: pd.DataFrame) -> tuple[list[dict], dict[str, str]]:
     """token_map is a dictionary where the key is the tokenized customer_id and the value is the original customer_id.

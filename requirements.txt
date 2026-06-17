@@ -1,3 +1,4 @@
 boto3
 awswrangler
 pandas
+apache-airflow-providers-google
